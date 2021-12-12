@@ -15,13 +15,6 @@ const userSchema=new Schema({
     minlength:3,
     maxlength:15,
    },
-   userName:{
-    type:String,
-    required:true,
-    trim:true,
-    minlength:3,
-    maxlength:15,
-   },
    //TC Kimlik Numarası
    TCK:{
     type:String,
