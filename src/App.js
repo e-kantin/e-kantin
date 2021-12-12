@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import { Router, BrowserRouter as Route, Switch } from 'react-router';
+import Login from './login/components/Login'
+import Register from './login/components/Register';
 
 function App() {
   return (
-    <h2>Hello world</h2>
+    <Register/>
   );
 }
 
