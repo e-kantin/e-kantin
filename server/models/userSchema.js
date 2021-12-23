@@ -1,4 +1,4 @@
-const mongoose=require('mongoose');
+import mongoose from 'mongoose'
 const Schema=mongoose.Schema;
 const userSchema=new Schema({
     name:{
@@ -23,10 +23,6 @@ const userSchema=new Schema({
        length:11, //**? */
        unique:true,
    },
-   Lectures:{
-       type:Array, //*//
-
-   },
    email:{
     type:String,
     required:true,
@@ -43,4 +39,4 @@ const userSchema=new Schema({
 
 },{collection:'Users',timestamps:true});
 const User=mongoose.model('User',userSchema);
-module.exports=User;
+export default User;

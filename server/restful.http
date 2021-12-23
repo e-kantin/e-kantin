@@ -1,0 +1,13 @@
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+    "name":"onur",
+    "surName":"karaaslan",
+    "TCK":"12345678911",
+    "email":"sadsadsad",
+    "password":"1231234",
+    
+}
+
+###
