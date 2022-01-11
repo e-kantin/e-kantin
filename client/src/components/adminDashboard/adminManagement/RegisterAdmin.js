@@ -42,7 +42,7 @@ const RegisterAdmin = () => {
     <div className="auth_page">
       <form onSubmit={handleSubmit} className="inner-shadow">
         <h3 className="text-uppercase text-center mb-4 auth-heading">
-          Campus Connect
+          E-kantin
         </h3>
         <div className="mb-3">
           <label htmlFor="fullname" className="form-label">

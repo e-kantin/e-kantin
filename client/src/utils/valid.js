@@ -16,6 +16,10 @@ const valid = ({ fullname, username, email, password, cf_password }) => {
     if (!email) {
       err.email = "Please add Email.";
     }
+    const regexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!email.match(regexp)) {
+      err.email = "Email is not valid";;
+    }
 
     if (!password) {
       err.password = "Please add Password.";

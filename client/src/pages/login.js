@@ -37,8 +37,8 @@ const Login = () => {
   return (
     <div className="auth_page">
       <form onSubmit={handleSubmit} className="inner-shadow">
-        <h3 className="text-uppercase text-center mb-4 auth-heading ">
-          Campus Connect
+        <h3 className="text-center mb-4 auth-heading ">
+          E-kantin
         </h3>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -80,7 +80,7 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="d-flex justify-content-evenly  mx-0 mb-4">
+        <div style={{visibility: 'hidden' }} className="d-flex justify-content-evenly  mx-0 mb-4">
           <label htmlFor="User">
             User:
             <input

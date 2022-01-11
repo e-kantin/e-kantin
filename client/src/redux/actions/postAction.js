@@ -20,27 +20,41 @@ export const createPost = ({content, images, auth, socket}) => async dispatch =>
 
     try {
         dispatch({ type: GLOBALTYPES.ALERT, payload: {loading: true} });
-
-        if(images.length > 0){ media = await imageUpload(images)}
-
-        const res = await postDataAPI('posts', {content, images: media}, auth.token );
-
         
-        dispatch({ type: POST_TYPES.CREATE_POST , payload: {...res.data.newPost, user: auth.user} });
+        if(images.length > 0){ 
+          media = await imageUpload(images)
+          var res = await postDataAPI('posts', {content, images: media}, auth.token );
+          dispatch({ type: POST_TYPES.CREATE_POST , payload: {...res.data.newPost, user: auth.user} });
         
-        dispatch({ type: GLOBALTYPES.ALERT, payload: { loading: false } });
+          dispatch({ type: GLOBALTYPES.ALERT, payload: { loading: false } });
+          
+  
+          // todo notification
+          var msg = {
+            id: res.data.newPost._id,
+            text: "Added a new post.",
+            recipients: res.data.newPost.user.followers,
+            url: `/post/${res.data.newPost._id}`,
+            content, 
+            image: media[0].url
+          };
         
-
-        // todo notification
-        const msg = {
-          id: res.data.newPost._id,
-          text: "Added a new post.",
-          recipients: res.data.newPost.user.followers,
-          url: `/post/${res.data.newPost._id}`,
-          content, 
-          image: media[0].url
-        };
-
+        }else{
+          var res = await postDataAPI('posts', {content}, auth.token );
+          dispatch({ type: POST_TYPES.CREATE_POST , payload: {...res.data.newPost, user: auth.user} });
+        
+          dispatch({ type: GLOBALTYPES.ALERT, payload: { loading: false } });
+          
+  
+          // todo notification
+          var msg = {
+            id: res.data.newPost._id,
+            text: "Added a new post.",
+            recipients: res.data.newPost.user.followers,
+            url: `/post/${res.data.newPost._id}`,
+            content
+          };
+        }
         dispatch(createNotify({msg, auth, socket}));
 
     } catch (err) {

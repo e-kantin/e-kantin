@@ -78,12 +78,12 @@ const StatusModal = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (images.length === 0) {
-      return dispatch({
-        type: GLOBALTYPES.ALERT,
-        payload: { error: "Add image(s)." },
-      });
-    }
+    // if (images.length === 0) {
+    //   return dispatch({
+    //     type: GLOBALTYPES.ALERT,
+    //     payload: { error: "Add image(s)." },
+    //   });
+    // }
 
     if (status.onEdit) {
       dispatch(updatePost({ content, images, auth, status }));
@@ -132,7 +132,7 @@ const StatusModal = () => {
             placeholder={`${auth.user.username}, What's on your mind?`}
             style={{
               filter: theme ? "invert(1)" : "invert(0)",
-              color: theme ? "white" : "#111",
+              color: theme ? "yellow" : "#555",
               background: theme ? "rgb(0,0,0,0.3)" : "",
             }}
           />

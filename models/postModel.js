@@ -6,8 +6,7 @@ const postSchema = new Schema(
   {
     content: String,
     images: {
-      type: Array,
-      required: true,
+      type: Array
     },
     likes: [
       {

@@ -64,7 +64,7 @@ const Info = ({id, auth, profile, dispatch}) => {
                     change password
                   </button>
                 ) : (
-                  <FollowBtn user={user} />
+                  <label />
                 )}
               </div>
 
